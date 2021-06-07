@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import { device } from "../../libs/Query"
 
 const family = "Helvetica, sans-serif;"
 
 const Wrapper = styled.div`
-        margin: 15px auto; 
-        padding: 10px;
-        width: 580px;
-        height: 850px;
-        border: 1px solid #333;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        margin: 15px auto; 
+        padding: 20px;
+        width: 580px;
+        height: 850px;
+        border: 1px solid #333;
+        
        
     `;
 
@@ -20,8 +20,6 @@ const Header = styled.h1`
         font-size: 17px;
         font-weight: 700px;
         line-height: 12px;
-        margin: 5px;
-        padding: 10px;
         text-align: center;
         letter-spacing: 1px;
         color:#000000;
@@ -38,6 +36,7 @@ const Input = styled.input`
         height: 40px;
         border: 1px solid #DEE1E6;
         background: #F7F8F9;
+        
     `;
 
 const Form = styled.form`
@@ -74,6 +73,9 @@ const Division = styled.div`
         display: flex;
          justify-content: space-between;
          flex-direction: row;
+         @media (max-width: 400px) {
+          flex-direction: column
+        }
     `;
 
 const styleConfig = () => {

@@ -3,10 +3,12 @@ import AddChoiceUI from '../../layouts/AddChoiceUI';
 import useForm from './useForm';
 
 
-const AddChoice = ({ handleListUpdate }) => {
+const AddChoice = ({ handleChoiceListUpdate }) => {
+
+
     return (
         <div>
-            <AddChoiceUI handleListUpdate={handleListUpdate} form={useForm()} />
+            <AddChoiceUI handleChoiceListUpdate={handleChoiceListUpdate} form={useForm()} />
         </div>
     )
 }

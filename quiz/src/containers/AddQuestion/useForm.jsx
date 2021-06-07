@@ -2,21 +2,21 @@ import { useState } from 'react'
 
 const useForm = () => {
 
-    const [form, setForm] = useState({});
+    const [question, setQuestion] = useState({});
 
     const onChange = (e) => {
-        setForm({
-            ...form,
+        setQuestion({
+            ...question,
             [e.target.name]: e.target.value
         });
     }
 
-    console.log("FormQuestion: ", form)
+    console.log("FormQuestion: ", question)
 
     return {
         onChange,
-        form,
-        setForm
+        question,
+        setQuestion
     };
 }
 

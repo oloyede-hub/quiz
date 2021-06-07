@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from '../../components/Button';
-import StyleConfig from "./style";
+import styleConfig from "./style";
 import { useHistory } from "react-router-dom"
 
-const AddChoiceUI = ({ form: { choices, onChange }, handleListUpdate }) => {
+const AddChoiceUI = ({ form: { choices, onChange, onChangeValue }, handleChoiceListUpdate }) => {
 
-    const { InputWrapper, InputCheck, Wrapper, Input, Header, Form, } = StyleConfig();
-    const history = useHistory()
-
+    const { InputWrapper, InputCheck, Wrapper, Input, Header, Form, } = styleConfig();
+    const history = useHistory();
+    console.log("Choice: ", choices)
     const handleSubmitChoice = () => {
-        handleListUpdate(choices);
+        handleChoiceListUpdate(choices);
         history.push("/addquestion");
     };
 
@@ -18,10 +18,10 @@ const AddChoiceUI = ({ form: { choices, onChange }, handleListUpdate }) => {
             <Header>Choice</Header>
             <section>
                 <Form>
-                    <InputWrapper style={{ margin: 0, width: "100%" }}>
-                        <label htmlFor="choice">Choice</label>
+                    <InputWrapper style={{ width: "100%" }}>
+                        <label htmlFor="text">Choice</label>
                         <Input
-                            id="choice"
+                            id="text"
                             name="text"
                             type="text"
                             placeholder="Your choice"
@@ -34,20 +34,30 @@ const AddChoiceUI = ({ form: { choices, onChange }, handleListUpdate }) => {
                         id="correct_option"
                         type="checkbox"
                         checked={choices.correct_option}
-                        onChange={onChange}
+                        onChange={onChangeValue}
                     />
-                    <label for="correct_option">Correct Option</label>
+                    <label htmlFor="correct_option">Correct Option</label>
                 </Form>
             </section>
-            <section style={{ display: "flex", padding: "20px", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }} >
+            <section style={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }} >
                 <div style={{ width: "100px" }} />
                 <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
-                    <Button color="#333333" path="/addquestion" title="Cancel" bgcolor="#B3B3B3" />
-                    <Button onClick={handleSubmitChoice} title="Add Choice" color="#fff" bgcolor="#0057D8" />
+                    <Button
+                        color="#333333"
+                        path="/addquestion"
+                        title="Cancel"
+                        bgcolor="#B3B3B3"
+                    />
+                    <Button
+                        path="/addquestion"
+                        onClick={handleSubmitChoice}
+                        title="Add Choice"
+                        color="#fff"
+                        bgcolor="#0057D8"
+                    />
                 </div>
             </section>
         </Wrapper>
     )
 }
-
 export default AddChoiceUI;

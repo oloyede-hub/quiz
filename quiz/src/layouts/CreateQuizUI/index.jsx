@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from '../../components/Button';
 import QuestionList from '../../components/QuestionList';
-import StyleConfig from "./style"
+import styleConfig from "./style"
 
 
 const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, questionList: questions }) => {
-    const { InputWrapper, Wrapper, Input, Header, Form, Section, InputLabel, Division } = StyleConfig();
+    const { InputWrapper, Wrapper, Input, Header, Form, Section, InputLabel, Division } = styleConfig();
 
 
     const handleSubmit = () => {
@@ -20,7 +20,7 @@ const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, que
             <Header>Create Quiz</Header>
             <Form>
                 <InputWrapper>
-                    <InputLabel for="quiz_title">Quiz Title</InputLabel>
+                    <InputLabel htmlFor="quiz_title">Quiz Title</InputLabel>
                     <Input
                         type="text"
                         id="quiz_title"
@@ -31,7 +31,7 @@ const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, que
                     />
                 </InputWrapper>
                 <InputWrapper>
-                    <InputLabel for="total_point">Total Point</InputLabel>
+                    <InputLabel htmlFor="total_point">Total Point</InputLabel>
                     <Input
                         id="total_point"
                         name="total_point"
@@ -43,7 +43,7 @@ const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, que
                 </InputWrapper>
                 <Division>
                     <InputWrapper style={{ margin: 0, width: "45%" }}>
-                        <InputLabel for="time_allowed">Time Allowed</InputLabel>
+                        <InputLabel htmlFor="time_allowed">Time Allowed</InputLabel>
                         <Input
                             id="time_allowed"
                             name="time_allowed"
@@ -55,7 +55,7 @@ const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, que
                         />
                     </InputWrapper>
                     <InputWrapper style={{ margin: 0, width: "45%" }} >
-                        <InputLabel for="deadline">Deadline</InputLabel>
+                        <InputLabel htmlFor="deadline">Deadline</InputLabel>
                         <Input
                             id="deadline"
                             name="deadline"
@@ -83,8 +83,8 @@ const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, que
             <Division style={{ alignItems: "center" }} >
                 <Division style={{ width: "250px" }} />
                 <Division style={{ padding: "5px", alignItems: "center", margin: "20px" }}>
-                    <Button color="#333333" title="Cancel" bgcolor="#B3B3B3" />
-                    <Button onClick={handleSubmit} title="Create Quiz" color="#fff" bgcolor="#0057D8" />
+                    <Button path="" color="#333333" title="Cancel" bgcolor="#B3B3B3" />
+                    <Button path="" onClick={handleSubmit} title="Create Quiz" color="#fff" bgcolor="#0057D8" />
                 </Division>
             </Division>
         </Wrapper>

@@ -5,20 +5,20 @@ import List from './List';
 
 
 const Table = styled.table`
-font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
+  border: 1px solid #333;
   width: 100%;
-`;
-const TableHead = styled.th`
-    text-align: left;
-    background-color: #DEE1E6;
-    color: #333;
-    border: 1px solid #ddd;
-`;
-
-const TableTD = styled.td`
   
 `;
+
+const TableData = styled.th`
+   text-align: center;
+    color:#596780;
+    font-size: 11px;
+   padding: 8px 0px;
+`;
+
 
 const QuestionList = ({ questions }) => {
 
@@ -27,13 +27,18 @@ const QuestionList = ({ questions }) => {
 
 
         <Table>
-            <tr>
-                <TableHead>Text</TableHead>
-                <TableHead >Type</TableHead>
-                <TableHead >Choices</TableHead>
-                <TableHead>Action</TableHead>
-                <TableHead>Action</TableHead>
-            </tr>
+            <thead>
+                <tr style={{ textAlign: "center" }}>
+                    <TableData colSpan="2">Text</TableData>
+                    <TableData></TableData>
+                    <TableData>Type</TableData>
+                    <TableData>Choices</TableData>
+                    <TableData>Points</TableData>
+                    <TableData colSpan="2">Action</TableData>
+                    <TableData  ></TableData>
+
+                </tr>
+            </thead>
             {questions.map((question, index) => (
                 <List question={question} choice={question.choiceList?.length} key={index} />
             ))}

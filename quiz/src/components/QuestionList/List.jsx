@@ -9,12 +9,15 @@ const List = ({ question, choice }) => {
         }
     }
     return (
-        <tr>
-            <td> {truncateString(question.text, 30)}</td>
-            {<td>{question.singleChoice}</td> || <td>{question.multiChoice}</td>}
+        <tr style={{ textAlign: "left" }}>
+            <td colSpan="2"> {truncateString(question.text, 20)}</td>
+            <td></td>
+            <td>{question.type}</td>
+            <td>{question.choiceList.length}</td>
             <td>{question.points}</td>
-            <td>{choice}</td>
-            <td>Tools</td>
+            <td>{choice.length}</td>
+            <td colSpan="2">Tools</td>
+            <td></td>
         </tr>
     )
 }

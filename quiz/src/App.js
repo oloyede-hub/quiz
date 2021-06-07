@@ -13,14 +13,14 @@ function App() {
    
 
   const handleChoiceListUpdate = (newChoice) => {
-  
-   setChoiceList(prevChoice => [...prevChoice, newChoice])
-
+    setChoiceList(prevChoice => [...prevChoice, newChoice]);
   }
 
+  console.log("ChoiceList: ", choiceList)
+
   const handletQUestionListUpdate = (newQuestion) => {
-    Object.assign(newQuestion, { choiceList: choiceList });
-    setQUestionList(prevChoice => [...prevChoice, newQuestion]);
+    newQuestion = Object.assign(newQuestion, { choiceList: choiceList });
+    setQUestionList(prevQuestion => [...prevQuestion, newQuestion]);
   }
 
   useEffect(() => {
@@ -51,11 +51,11 @@ function App() {
         }} />
         <Route exact path="/addquestion" render={(props) => {
           document.title= "AddQuestion"
-          return <AddQuestion choiceList={quiz.questionList?.choiceList} handletQUestionListUpdate={handletQUestionListUpdate} {...props} />
+          return <AddQuestion choiceList={choiceList} handletQUestionListUpdate={handletQUestionListUpdate} {...props} />
         }} />
         <Route exact path="/addchoice" render={(props) => {
           document.title= "AddChoice"
-          return<AddChoice handleListUpdate={handleChoiceListUpdate} {...props} />
+          return<AddChoice handleChoiceListUpdate={handleChoiceListUpdate} {...props} />
         }} />
       </Switch>
     </Router>

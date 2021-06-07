@@ -8,6 +8,12 @@ const Wrapper = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+         @media (max-width: 767px) {
+           width: 300.324px;
+        }
+        @media (max-width: 400px) {
+            width: 200.324px;
+        }
     `;
 
 const Header = styled.h1`
@@ -25,6 +31,7 @@ const Input = styled.input`
         padding: 0px 5px;
         margin: 10px 20px;
         border-radius: 5px;
+        
         font-size: 12px;
         font-weight: normal;
         outline: none;
@@ -36,11 +43,10 @@ const Input = styled.input`
 
 const Form = styled.form`
         padding: 0px 10px;
-        margin:0 auto;
+        margin: 0 auto;
         font-size: 12px;
         font-weight: normal;
-        margin: 0 auto;
-        width: 540px;
+        width: 95%;
         
     `;
 
@@ -56,8 +62,10 @@ const Division = styled.div`
         display: flex;
          justify-content: space-between;
          flex-direction: row;
+         
+         
     `;
-const StyleConfig = () => {
+const styleConfig = () => {
 
 
 
@@ -71,4 +79,4 @@ const StyleConfig = () => {
     };
 }
 
-export default StyleConfig
+export default styleConfig

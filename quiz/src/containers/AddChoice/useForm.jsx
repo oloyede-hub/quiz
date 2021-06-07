@@ -8,11 +8,18 @@ const useForm = () => {
 
     const onChange = (e) => {
         const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.type === 'text' ? target.value : target.checked
 
         setChoices({
+            [e.target.name]: value,
             ...choices,
-            [target.name]: value
+        });
+    };
+
+    const onChangeValue = (e) => {
+        setChoices({
+            ...choices,
+            [e.target.name]: e.target.checked,
         });
     };
 
@@ -23,6 +30,7 @@ const useForm = () => {
         onChange,
         choices,
         setChoices,
+        onChangeValue
     };
 }
 
