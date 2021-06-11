@@ -23,7 +23,7 @@ const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, 
                         <label htmlFor="time_allowed" style={{ margin: "5px 0px" }}>Question</label>
                         <textarea style={{ border: "1px solid #DEE1E6", background: "#F7F8F9", outline: "none", resize: "none", height: "40px" }} name="text" value={question.text} onChange={onChange} />
                     </InputWrapper>
-                 <section>
+                    <section>
 
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
@@ -67,7 +67,7 @@ const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, 
                 </section>
             </form>
 
-            <Division style={{ margin: "0 auto", border: "1px solid  #333", height: "237px", width: "540px", position: "relative", overflow: `${choices?.length && "auto"}` }}>
+            <Division style={{ margin: "0 auto", padding: 0, border: "1px solid  #333", height: "237px", width: "540px", position: "relative", overflow: `${choices?.length && "auto"}` }}>
                 {choices?.length === 0 || choices === undefined ? (
                     <div >
                         <Button style={{ position: "absolute", top: "40%", left: "40%" }} path="/addchoice" title="Add Choice" color="#fff" bgcolor="#0057D8" />

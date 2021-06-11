@@ -4,21 +4,19 @@ import List from './List';
 
 
 
-const Table = styled.table`
+const Lists = styled.li`
   font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  border: 3px solid #ddd;
-  width: 100%;
+   display: flex;
+   justify-content: space-between;
+   width: 100%;
+   list-style-type: none;
   
 `;
 
-const TableHead = styled.th`
-    text-align: left;
-    background-color: #DEE1E6;
+const ListData = styled.div`
     color:#596780;
     font-size: 11px;
-    border: 1px solid #ddd;
-   padding: 8px;
+  
 `;
 
 
@@ -26,22 +24,20 @@ const ChoiceList = ({ choices }) => {
 
 
     return (
-        <Table>
-            <thead>
-                <tr style={{ textAlign: "left" }}>
-                    <TableHead colSpan="2" >Text</TableHead>
-                    <TableHead  ></TableHead>
-                    <TableHead>isCorect</TableHead>
-                    <TableHead>Action</TableHead>
-
-                </tr>
-            </thead>
-            <tbody>
-                {choices.map((choice, index) => (
+        <ul style={{ margin: "0 0px" }}>
+            <Lists>
+                <ListData style={{ width: "50%" }}> Text</ListData>
+                <div style={{ display: "flex", justifyContent: "space-between", width: "50%" }}>
+                    <ListData>isCorect</ListData>
+                    <ListData>Action</ListData>
+                </div>
+            </Lists>
+            {
+                choices.map((choice, index) => (
                     <List choice={choice} key={index} />
-                ))}
-            </tbody>
-        </Table>
+                ))
+            }
+        </ul >
     )
 }
 

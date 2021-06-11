@@ -43,7 +43,7 @@ function App() {
   console.log("Quiz: ", quiz)
   
   return (
-    <Router className="">
+    <Router>
       <Switch>
         <Route exact path="/" render={(props) => {
           document.title= "CreateQuiz"
