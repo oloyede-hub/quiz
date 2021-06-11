@@ -6,31 +6,28 @@ const useForm = () => {
     const [choices, setChoices] = useState({})
 
 
-    const onChange = (e) => {
-        const target = e.target;
-        const value = target.type === 'text' ? target.value : target.checked
+    let handleInputChange = (event) => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
 
         setChoices({
-            [e.target.name]: value,
             ...choices,
+            [name]: value
         });
-    };
+    }
 
-    const onChangeValue = (e) => {
-        setChoices({
-            ...choices,
-            [e.target.name]: e.target.checked,
-        });
-    };
+
+
+
 
 
 
 
     return {
-        onChange,
         choices,
         setChoices,
-        onChangeValue
+        handleInputChange
     };
 }
 

@@ -9,6 +9,7 @@ const Lists = styled.li`
   font-family: Arial, Helvetica, sans-serif;
    display: flex;
    justify-content: space-between;
+   align-items: center;
    width: 100%;
    list-style-type: none;
   

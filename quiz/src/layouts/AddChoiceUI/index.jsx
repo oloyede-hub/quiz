@@ -3,9 +3,11 @@ import Button from '../../components/Button';
 import styleConfig from "./style";
 import { useHistory } from "react-router-dom"
 
-const AddChoiceUI = ({ form: { choices, onChange, onChangeValue }, handleChoiceListUpdate }) => {
+const { InputWrapper, InputCheck, Wrapper, Input, Header, Form, } = styleConfig();
 
-    const { InputWrapper, InputCheck, Wrapper, Input, Header, Form, } = styleConfig();
+
+const AddChoiceUI = ({ form: { choices, handleInputChange }, handleChoiceListUpdate }) => {
+
     const history = useHistory();
     console.log("Choice: ", choices)
     const handleSubmitChoice = () => {
@@ -26,15 +28,13 @@ const AddChoiceUI = ({ form: { choices, onChange, onChangeValue }, handleChoiceL
                             type="text"
                             placeholder="Your choice"
                             value={choices.text}
-                            onChange={onChange}
+                            onChange={handleInputChange}
                         />
                     </InputWrapper>
                     <InputCheck
                         name="correct_option"
-                        id="correct_option"
                         type="checkbox"
-                        checked={choices.correct_option}
-                        onChange={onChangeValue}
+                        onChange={handleInputChange}
                     />
                     <label htmlFor="correct_option">Correct Option</label>
                 </Form>
