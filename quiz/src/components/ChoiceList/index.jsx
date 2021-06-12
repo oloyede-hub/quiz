@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import Button from '../Button';
 import List from './List';
 
 
@@ -13,18 +14,16 @@ const Lists = styled.li`
   
 `;
 
-const ListData = styled.div`
+const ListData = styled.p`
     color:#596780;
     font-size: 11px;
-  
 `;
 
 
 const ChoiceList = ({ choices }) => {
 
-
     return (
-        <ul style={{ margin: "0 0px" }}>
+        <ul >
             <Lists>
                 <ListData style={{ width: "50%" }}> Text</ListData>
                 <div style={{ display: "flex", justifyContent: "space-between", width: "50%" }}>
@@ -37,6 +36,7 @@ const ChoiceList = ({ choices }) => {
                     <List choice={choice} key={index} />
                 ))
             }
+            <Button path="/addchoice" title="Add More Choice" color="#fff" bgcolor="#0057D8" />
         </ul >
     )
 }

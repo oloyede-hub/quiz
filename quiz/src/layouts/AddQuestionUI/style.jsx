@@ -50,7 +50,7 @@ const Form = styled.form`
         
     `;
 
-const InputWrapper = styled.form`
+const InputWrapper = styled.div`
     padding: 5px;
         display: flex;
         justify-content: center;

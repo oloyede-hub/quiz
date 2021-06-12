@@ -17,13 +17,16 @@ const Lists = styled.li`
 
 const Page = styled.p`
     color:#596780;
-    margin-left: 60px;
+ padding-left: 30px;
   font-size: 14px;
   text-align: left;
-
+   width: 50px;
 `;
 
 const List = ({ question, choice }) => {
+    const questionData = JSON.parse(question)
+    const choiceList = JSON.parse(question.choiceList)
+
     function truncateString(str, num) {
         if (str?.length > num) {
             return str.slice(0, num) + "..?";
@@ -35,11 +38,11 @@ const List = ({ question, choice }) => {
 
     return (
         <Lists>
-            <Page style={{ marginLeft: 0 }} > {truncateString(question.text, 15) || "Nil"}</Page>
+            <Page style={{ paddingLeft: "5px", width: " 100px" }} > {truncateString(questionData.text, 15) || ""}</Page>
             <div style={{ display: 'flex' }}>
-                <Page>{question.type || "Nil"}</Page>
-                <Page>{question.choiceList.length || "Nil"}</Page>
-                <Page>{question.points || "Nil"}</Page>
+                <Page>{questionData.type || ""}</Page>
+                <Page style={{ textAlign: 'center' }}>{choiceList.length || ""}</Page>
+                <Page>{questionData.points || ""}</Page>
                 <Page style={{ display: "flex" }}>
                     <FaTrashAlt style={{ fontSize: "16px" }} />
                     <FaEdit style={{ fontSize: "16px" }} />

@@ -3,14 +3,13 @@ import Button from '../../components/Button';
 import QuestionList from '../../components/QuestionList';
 import styleConfig from "./style"
 
+const { InputWrapper, Wrapper, Input, Header, Form, Section, InputLabel, Division } = styleConfig();
 
-const CreateQuizUI = ({ form: { form, setForm, onChange }, handleQuizUpdate, questionList: questions }) => {
-    const { InputWrapper, Wrapper, Input, Header, Form, Section, InputLabel, Division } = styleConfig();
+const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList: questions }) => {
 
 
     const handleSubmit = () => {
         handleQuizUpdate(form);
-
     }
 
 

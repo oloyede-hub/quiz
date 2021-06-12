@@ -7,15 +7,25 @@ import { FaEdit } from "react-icons/fa";
 
 
 
-const Li = styled.tbody`
+const Li = styled.li`
  display: flex;
  justify-content: space-between;
   width: 440px;
-  padding-top: 5px;
 
 `;
 
+const Page = styled.p`
+    color:#596780;
+  font-size: 14px;
+//    width: "50px"
+ 
+
+`;
+
+
 const List = ({ choice }) => {
+    const choiceData = JSON.parse(choice)
+
     function truncateString(str, num) {
         if (str?.length > num) {
             return str.slice(0, num) + "...";
@@ -25,14 +35,14 @@ const List = ({ choice }) => {
     }
     return (
         <Li style={{}}>
-            <p>{truncateString(choice.text, 30)}</p>
-            <p style={{ display: "flex", justifyContent: "space-between", width: "200px" }}>
-                <p>{choice.correct_option ? "true" : "false"}</p>
-                <p style={{ display: "flex" }}>
+            <Page style={{ marginLeft: 0 }}>{truncateString(choiceData.text, 30)}</Page>
+            <div style={{ display: "flex", justifyContent: "space-between", width: "200px" }}>
+                <Page>{choiceData.correct_option ? "true" : "false"}</Page>
+                <Page style={{ display: "flex" }}>
                     <FaTrashAlt style={{ fontSize: "16px" }} />
                     <FaEdit style={{ fontSize: "16px" }} />
-                </p>
-            </p>
+                </Page>
+            </div>
 
         </Li>
     )

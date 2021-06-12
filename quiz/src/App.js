@@ -16,10 +16,12 @@ function App() {
     setChoiceList(prevChoice => [...prevChoice, newChoice]);
   }
 
-  console.log("ChoiceList: ", choiceList)
+
+
 
   const handletQUestionListUpdate = (newQuestion) => {
-    newQuestion = Object.assign(newQuestion, { choiceList: choiceList });
+
+    newQuestion = Object.assign(newQuestion, { choiceList:JSON.stringify(choiceList)});
     setQUestionList(prevQuestion => [...prevQuestion, newQuestion]);
   }
 
@@ -27,21 +29,15 @@ function App() {
     setQuiz({
       questionList: questionList,
     })
-    
   }, [questionList]);
 
   
-  const  handleQuizUpdate = ({ quiz_title, total_point, deadline, time_allowed}) => {
-    setQuiz({
-      quiz_title,
-      total_point,
-      deadline,
-      time_allowed,
-    
-    });
+  const  handleQuizUpdate = (form) => {
+    setQuiz(form);
   }
+
+
   console.log("Quiz: ", quiz)
-  
   return (
     <Router>
       <Switch>
