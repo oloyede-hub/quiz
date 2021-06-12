@@ -24,7 +24,7 @@ const Page = styled.p`
 
 
 const List = ({ choice }) => {
-    const choiceData = JSON.parse(choice)
+
 
     function truncateString(str, num) {
         if (str?.length > num) {
@@ -35,9 +35,9 @@ const List = ({ choice }) => {
     }
     return (
         <Li style={{}}>
-            <Page style={{ marginLeft: 0 }}>{truncateString(choiceData.text, 30)}</Page>
+            <Page style={{ marginLeft: 0 }}>{truncateString(choice.text, 30)}</Page>
             <div style={{ display: "flex", justifyContent: "space-between", width: "200px" }}>
-                <Page>{choiceData.correct_option ? "true" : "false"}</Page>
+                <Page>{choice.correct_option ? "true" : "false"}</Page>
                 <Page style={{ display: "flex" }}>
                     <FaTrashAlt style={{ fontSize: "16px" }} />
                     <FaEdit style={{ fontSize: "16px" }} />

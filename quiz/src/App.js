@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import CreateQuiz from './containers/CreateQuiz';
 import AddQuestion from './containers/AddQuestion';
 import AddChoice from './containers/AddChoice';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function App() {
 
@@ -12,6 +12,9 @@ function App() {
     const [choiceList, setChoiceList] = useState([]);
    
 
+  // The quiz object can be stringify here and send to the backend...
+  // make sure the Create Quiz button is clicked before it can populate the quiz object
+console.log("quiz: ",JSON.stringify(quiz, null, 2) )
   const handleChoiceListUpdate = (newChoice) => {
     setChoiceList(prevChoice => [...prevChoice, newChoice]);
   }
@@ -20,20 +23,20 @@ function App() {
 
 
   const handletQUestionListUpdate = (newQuestion) => {
-
-    newQuestion = Object.assign(newQuestion, { choiceList:JSON.stringify(choiceList)});
-    setQUestionList(prevQuestion => [...prevQuestion, newQuestion]);
+    const newQuestionData = Object.assign(newQuestion, { choiceList :choiceList});
+    setQUestionList(prevQuestion => [...prevQuestion, newQuestionData]);
   }
 
-  useEffect(() => {
-    setQuiz({
-      questionList: questionList,
-    })
-  }, [questionList]);
 
   
-  const  handleQuizUpdate = (form) => {
-    setQuiz(form);
+  const  handleQuizUpdate = ({ quiz_title, total_point, deadline, time_allowed}) => {
+    setQuiz({
+      quiz_title,
+      total_point,
+      deadline,
+      time_allowed,
+      questionList: questionList,
+    });
   }
 
 
@@ -43,7 +46,7 @@ function App() {
       <Switch>
         <Route exact path="/" render={(props) => {
           document.title= "CreateQuiz"
-          return <CreateQuiz questionList={quiz.questionList} handleQuizUpdate={handleQuizUpdate} {...props} />
+          return <CreateQuiz questionList={questionList} handleQuizUpdate={handleQuizUpdate} {...props} />
         }} />
         <Route exact path="/addquestion" render={(props) => {
           document.title= "AddQuestion"

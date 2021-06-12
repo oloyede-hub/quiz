@@ -8,8 +8,7 @@ const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, 
     const { Wrapper, Header, Division, InputWrapper, Input } = styleConfig();
     const history = useHistory()
     const handleSubmitQuestion = () => {
-        const jsonData = JSON.stringify(question);
-        handletQUestionListUpdate(jsonData);
+        handletQUestionListUpdate(question);
         history.push("/")
     };
 

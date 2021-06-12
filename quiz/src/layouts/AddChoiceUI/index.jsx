@@ -11,8 +11,7 @@ const AddChoiceUI = ({ form: { choices, handleInputChange }, handleChoiceListUpd
     const history = useHistory();
     console.log("Choice: ", choices)
     const handleSubmitChoice = () => {
-        const jsonData = JSON.stringify(choices)
-        handleChoiceListUpdate(jsonData);
+        handleChoiceListUpdate(choices);
         history.push("/addquestion");
     };
 
