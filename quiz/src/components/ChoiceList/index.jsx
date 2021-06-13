@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router';
 import styled from "styled-components";
 import Button from '../Button';
 import List from './List';
@@ -20,7 +21,9 @@ const ListData = styled.p`
 `;
 
 
-const ChoiceList = ({ choices }) => {
+const ChoiceList = ({ choices, setChoiceList }) => {
+
+
 
     return (
         <ul >

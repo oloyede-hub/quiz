@@ -5,11 +5,11 @@ import styleConfig from "./style"
 
 const { InputWrapper, Wrapper, Input, Header, Form, Section, InputLabel, Division } = styleConfig();
 
-const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList: questions }) => {
+const CreateQuizUI = ({ onChange, questionList: questions, quiz, handleQuizUpdate }) => {
 
 
     const handleSubmit = () => {
-        handleQuizUpdate(form);
+        handleQuizUpdate();
     }
 
 
@@ -25,7 +25,7 @@ const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList
                         id="quiz_title"
                         name="quiz_title"
                         placeholder="Spring Framework"
-                        value={form.quiz_title || ""}
+                        value={quiz.quiz_title || ""}
                         onChange={onChange}
                     />
                 </InputWrapper>
@@ -36,7 +36,7 @@ const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList
                         name="total_point"
                         type="text"
                         placeholder="100"
-                        value={form.total_point || ""}
+                        value={quiz.total_point || ""}
                         onChange={onChange}
                     />
                 </InputWrapper>
@@ -49,7 +49,7 @@ const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList
                             type="text"
                             placeholder="100"
                             style={{ height: "30px" }}
-                            value={form.time_allowed || ""}
+                            value={quiz.time_allowed || ""}
                             onChange={onChange}
                         />
                     </InputWrapper>
@@ -61,7 +61,7 @@ const CreateQuizUI = ({ form: { form, onChange }, handleQuizUpdate, questionList
                             type="date"
                             placeholder="100"
                             style={{ height: "30px" }}
-                            value={form.deadline || ""}
+                            value={quiz.deadline || ""}
                             onChange={onChange}
                         />
                     </InputWrapper>

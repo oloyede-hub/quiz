@@ -3,7 +3,7 @@ import Button from '../../components/Button';
 import styleConfig from "./style";
 import ChoiceList from "../../components/ChoiceList"
 
-const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, choiceList: choices }) => {
+const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, choiceList: choices, setChoiceList }) => {
 
     const { Wrapper, Header, Division, InputWrapper, Input } = styleConfig();
 
@@ -72,7 +72,7 @@ const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, 
                         <Button style={{ position: "absolute", top: "40%", left: "40%" }} path="/addchoice" title="Add Choice" color="#fff" bgcolor="#0057D8" />
                     </div>
                 ) : (
-                    <ChoiceList choices={choices} />
+                    <ChoiceList setChoiceList={setChoiceList} choices={choices} />
                 )}
             </Division>
 

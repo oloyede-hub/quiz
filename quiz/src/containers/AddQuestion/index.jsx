@@ -4,10 +4,10 @@ import useForm from './useForm'
 
 
 
-const AddQuestion = ({ choiceList, handletQUestionListUpdate }) => {
+const AddQuestion = ({ choiceList, handletQUestionListUpdate, setChoiceList }) => {
     return (
         <div>
-            <AddQuestionUI choiceList={choiceList} handletQUestionListUpdate={handletQUestionListUpdate} form={useForm()} />
+            <AddQuestionUI setChoiceList={setChoiceList} choiceList={choiceList} handletQUestionListUpdate={handletQUestionListUpdate} form={useForm()} />
         </div>
     )
 }

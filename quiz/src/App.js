@@ -5,18 +5,20 @@ import AddQuestion from './containers/AddQuestion';
 import AddChoice from './containers/AddChoice';
 import React, { useState } from 'react';
 import useForm from "./containers/AddQuestion/useForm"
+// import useForms from "./containers/CreateQuiz/useForm"
 ;
 
 function App() {
   const { setQuestion } = useForm();
- 
-  const [quiz, setQuiz] = useState({
-    quiz_title: "",
-    total_point: "",
-    deadline: "",
-    time_allowed: "",
-    questions: [] 
-    });
+  const [quiz, setQuiz] = useState({});
+
+    const onChangeQuizValue = (e) => {
+        setQuiz({
+            ...quiz,
+            [e.target.name]: e.target.value
+        });
+    }
+
     const [questionList, setQUestionList] = useState([]);
     const [choiceList, setChoiceList] = useState([]);
     
@@ -24,35 +26,31 @@ function App() {
     // The quiz object can be stringify here and send to the backend...
     // make sure the Create  button is clicked after the choices has been added
     console.log("quiz: ", JSON.stringify(quiz, null, 2));
-    
     console.log("Quiz: ", quiz);
+    
  
 
 
   const handleChoiceListUpdate = (newChoice) => {
     setChoiceList(prevChoice => [...prevChoice, newChoice]);
-    setQuestion(prev => ({
-     ...prev,
-      choiceList: [ newChoice]
-    }))
   }
  
 
   const handletQUestionListUpdate = (newQuestion) => {
     setQUestionList(prev => [...prev, newQuestion])
-    setQuiz((prev) => ({
-      ...prev,
-      questions: [...prev.questions, newQuestion]
-     }));
-   
   }
 
   
-  const  handleQuizUpdate = (form) => {
-    setQuiz((prev) => ({
+  const handleQuizUpdate = () => {
+    setQuestion(prev => ({
       ...prev,
-      ...form
+      choiceList: choiceList
     }));
+     setQuiz((prev) => ({
+      ...prev,
+      questions:questionList
+     }));
+
   }
 
   return (
@@ -60,11 +58,11 @@ function App() {
       <Switch>
         <Route exact path="/" render={(props) => {
           document.title= "CreateQuiz"
-          return <CreateQuiz questionList={questionList} handleQuizUpdate={handleQuizUpdate} {...props} />
+          return <CreateQuiz onChange={onChangeQuizValue}  questionList={questionList} handleQuizUpdate={handleQuizUpdate} quiz={quiz} {...props} />
         }} />
         <Route exact path="/addquestion" render={(props) => {
           document.title= "AddQuestion"
-          return <AddQuestion  setQUestionList={setQUestionList} choiceList={choiceList} handletQUestionListUpdate={handletQUestionListUpdate} {...props} />
+          return <AddQuestion setChoiceList={setChoiceList}   setQUestionList={setQUestionList} choiceList={choiceList} handletQUestionListUpdate={handletQUestionListUpdate} {...props} />
         }} />
         <Route exact path="/addchoice" render={(props) => {
           document.title= "AddChoice"

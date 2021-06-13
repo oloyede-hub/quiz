@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components";
+import Button from '../Button';
 import List from './List';
 
 
@@ -24,6 +25,9 @@ const Page = styled.p`
 const QuestionList = ({ questions }) => {
 
 
+
+
+
     return (
         <ul style={{ border: "1px solid #333", width: "540px", padding: "5px" }}>
             <Lists style={{ display: 'flex', }} >
@@ -38,6 +42,7 @@ const QuestionList = ({ questions }) => {
             {questions.map((question, index) => (
                 <List question={question} choice={question.choiceList?.length} key={index} />
             ))}
+            <Button path="/addquestion" title="Add More Question" color="#fff" bgcolor="#0057D8" />
         </ul>
     )
 }

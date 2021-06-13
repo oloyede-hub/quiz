@@ -1,12 +1,12 @@
 import React from 'react'
 import CreateQuizUI from '../../layouts/CreateQuizUI';
-import useForm from './useForm';
 
 
-const CreatQuiz = ({ handleQuizUpdate, choiceList, questionList }) => {
+
+const CreatQuiz = ({ handleQuizUpdate, onChange, quiz, choiceList, questionList }) => {
     return (
         <div>
-            <CreateQuizUI choiceList={choiceList} questionList={questionList} handleQuizUpdate={handleQuizUpdate} form={useForm()} />
+            <CreateQuizUI onChange={onChange} handleQuizUpdate={handleQuizUpdate} choiceList={choiceList} quiz={quiz} questionList={questionList} />
         </div>
     )
 }
