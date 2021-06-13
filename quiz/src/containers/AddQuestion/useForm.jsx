@@ -2,7 +2,12 @@ import { useState } from 'react'
 
 const useForm = () => {
 
-    const [question, setQuestion] = useState({});
+    const [question, setQuestion] = useState({
+        text: "",
+        type: "",
+        points: "",
+        choiceList: []
+    });
 
     const onChange = (e) => {
         setQuestion({

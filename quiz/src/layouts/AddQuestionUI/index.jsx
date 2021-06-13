@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from '../../components/Button';
 import styleConfig from "./style";
-import { useHistory } from "react-router-dom";
 import ChoiceList from "../../components/ChoiceList"
 
 const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, choiceList: choices }) => {
+
     const { Wrapper, Header, Division, InputWrapper, Input } = styleConfig();
-    const history = useHistory()
+
     const handleSubmitQuestion = () => {
-        handletQUestionListUpdate(question);
-        history.push("/")
+        const newQuestionData = Object.assign(question, { choiceList: choices });
+        handletQUestionListUpdate(newQuestionData);
     };
 
 
@@ -24,7 +24,6 @@ const AddQuestion = ({ form: { question, onChange }, handletQUestionListUpdate, 
                         <textarea style={{ border: "1px solid #DEE1E6", background: "#F7F8F9", outline: "none", resize: "none", height: "40px" }} name="text" value={question.text} onChange={onChange} />
                     </InputWrapper>
                     <section>
-
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
                             <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                                 <div style={{ textAlign: "left", fontWeight: "200px", fontSize: "15px" }}>Type</div>

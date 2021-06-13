@@ -1,18 +1,18 @@
 import React from 'react';
 import Button from '../../components/Button';
 import styleConfig from "./style";
-import { useHistory } from "react-router-dom"
+
 
 const { InputWrapper, InputCheck, Wrapper, Input, Header, Form, } = styleConfig();
 
 
 const AddChoiceUI = ({ form: { choices, handleInputChange }, handleChoiceListUpdate }) => {
 
-    const history = useHistory();
+
     console.log("Choice: ", choices)
     const handleSubmitChoice = () => {
         handleChoiceListUpdate(choices);
-        history.push("/addquestion");
+
     };
 
     return (
