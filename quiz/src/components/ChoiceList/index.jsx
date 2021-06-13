@@ -23,8 +23,6 @@ const ListData = styled.p`
 
 const ChoiceList = ({ choices, setChoiceList }) => {
 
-
-
     return (
         <ul >
             <Lists>
@@ -43,5 +41,4 @@ const ChoiceList = ({ choices, setChoiceList }) => {
         </ul >
     )
 }
-
 export default ChoiceList;
